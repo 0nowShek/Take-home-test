@@ -73,9 +73,9 @@ Create a `.env` file in the `backend` directory:
 
 ```env
 # Twilio Configuration (Required for calls)
-TWILIO_ACCOUNT_SID=your_account_sid_here
-TWILIO_AUTH_TOKEN=your_auth_token_here
-TWILIO_PHONE_NUMBER=+1234567890
+TWILIO_ACCOUNT_SID=AC3c3c24ea7c7666137dd521e03370f41f
+TWILIO_AUTH_TOKEN=b0caa2e7e89df40532a255e58e3b079f
+TWILIO_PHONE_NUMBER=+16466300614
 
 # Database (Optional - defaults to SQLite)
 DATABASE_URL=sqlite:///./reminders.db
