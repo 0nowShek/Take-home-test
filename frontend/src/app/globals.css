@@ -1,0 +1,436 @@
+@import "tailwindcss";
+
+@theme {
+  /* Soft pastel palette - blue, pink, peach harmony */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+/* Light Mode - Clean White Background, Pastel Components */
+:root {
+  /* Backgrounds - Pure white base (clean, professional) */
+  --background: #ffffff;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  
+  /* Primary - Soft Sky Blue (buttons, links, interactive) */
+  --primary: #7dd3fc;
+  --primary-foreground: #0c4a6e;
+  
+  /* Secondary - Soft Blush Pink (secondary actions) */
+  --secondary: #fbcfe8;
+  --secondary-foreground: #831843;
+  
+  /* Muted - Light gray (subtle backgrounds) */
+  --muted: #f8fafc;
+  --muted-foreground: #64748b;
+  
+  /* Accent - Soft Peach (highlights, CTAs) */
+  --accent: #fed7aa;
+  --accent-foreground: #7c2d12;
+  
+  /* Status Colors - Soft & clear */
+  --destructive: #fecdd3;
+  --destructive-foreground: #881337;
+  --success: #bbf7d0;
+  --success-foreground: #14532d;
+  --warning: #fef08a;
+  --warning-foreground: #713f12;
+  
+  /* Borders & Inputs - Subtle gray */
+  --border: #e2e8f0;
+  --input: #f8fafc;
+  --ring: #7dd3fc;
+  --radius: 0.5rem;
+}
+
+/* Dark Mode - Clean Dark, Pastel Accents */
+.dark {
+  /* Backgrounds - Clean dark (not blue-tinted) */
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --card: #171717;
+  --card-foreground: #fafafa;
+  
+  /* Primary - Bright Sky Blue (glows in dark) */
+  --primary: #7dd3fc;
+  --primary-foreground: #0c1222;
+  
+  /* Secondary - Soft Rose (romantic glow) */
+  --secondary: #f9a8d4;
+  --secondary-foreground: #0c1222;
+  
+  /* Muted - Deep gray */
+  --muted: #27272a;
+  --muted-foreground: #a1a1aa;
+  
+  /* Accent - Warm Coral (cozy contrast) */
+  --accent: #fdba74;
+  --accent-foreground: #0c1222;
+  
+  /* Status Colors - Bright pastels */
+  --destructive: #fda4af;
+  --destructive-foreground: #0c1222;
+  --success: #86efac;
+  --success-foreground: #0c1222;
+  --warning: #fde68a;
+  --warning-foreground: #0c1222;
+  
+  /* Borders & Inputs - Subtle gray */
+  --border: #27272a;
+  --input: #27272a;
+  --ring: #7dd3fc;
+}
+
+/* System preference support */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+    --card: #171717;
+    --card-foreground: #fafafa;
+    --primary: #7dd3fc;
+    --primary-foreground: #0c1222;
+    --secondary: #f9a8d4;
+    --secondary-foreground: #0c1222;
+    --muted: #27272a;
+    --muted-foreground: #a1a1aa;
+    --accent: #fdba74;
+    --accent-foreground: #0c1222;
+    --destructive: #fda4af;
+    --destructive-foreground: #0c1222;
+    --success: #86efac;
+    --success-foreground: #0c1222;
+    --warning: #fde68a;
+    --warning-foreground: #0c1222;
+    --border: #27272a;
+    --input: #27272a;
+    --ring: #7dd3fc;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* ============================================ */
+/* ANIMATION KEYFRAMES */
+/* ============================================ */
+
+/* Fade animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+/* Slide animations */
+@keyframes slideInFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToRight {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+/* Card entrance animation (gentle slide up) */
+@keyframes slideInFromBottomSmall {
+  from {
+    transform: translateY(16px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Toast zoom animations */
+@keyframes zoomIn {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes zoomOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+}
+
+/* Shimmer animation for skeletons */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-150%);
+  }
+  100% {
+    transform: translateX(150%);
+  }
+}
+
+/* Toast progress bar countdown */
+@keyframes toastProgress {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+/* ============================================ */
+/* UTILITY ANIMATION CLASSES */
+/* ============================================ */
+
+/* Generic animation utilities */
+.animate-in {
+  animation-duration: 0.4s;
+  animation-fill-mode: both;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.fade-in {
+  animation-name: fadeIn;
+}
+
+/* Skeleton shimmer */
+.animate-shimmer {
+  animation: shimmer 2.5s ease-in-out infinite;
+}
+
+/* Card entrance */
+.slide-in-from-bottom-4 {
+  animation-name: slideInFromBottomSmall;
+}
+
+/* Toast animations */
+.slide-in-from-top-full {
+  animation: slideInFromTop 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-in-from-bottom-full {
+  animation: slideInFromBottom 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.slide-out-to-right-full {
+  animation: slideOutToRight 0.2s ease-in;
+}
+
+.zoom-in-95 {
+  animation: zoomIn 0.2s ease-out;
+}
+
+.zoom-out-95 {
+  animation: zoomOut 0.15s ease-in;
+}
+
+/* Add to globals.css */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.1);
+}
+
+/* ============================================ */
+/* DELETE ANIMATION - Scale Down & Fade */
+/* ============================================ */
+
+@keyframes scaleOut {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+}
+
+.animate-out {
+  animation-duration: 0.3s;
+  animation-fill-mode: forwards;
+  animation-timing-function: cubic-bezier(0.4, 0, 1, 1); /* Ease in */
+}
+
+.scale-out {
+  animation-name: scaleOut;
+}
+
+/* ============================================ */
+/* PULSE ANIMATION FOR URGENT REMINDERS */
+/* ============================================ */
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+.animate-pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* ============================================ */
+/* BUTTON MICRO-INTERACTIONS */
+/* ============================================ */
+
+/* Smooth transitions for all buttons */
+button {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Enhanced hover states */
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+/* Active press state */
+button:active:not(:disabled) {
+  transform: translateY(0px) scale(0.98);
+}
+
+/* Disabled state clarity */
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Focus ring (accessibility) */
+button:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* ============================================ */
+/* ENHANCED INPUT FOCUS STATES */
+/* ============================================ */
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+  border-color: hsl(var(--primary));
+  box-shadow: 0 0 0 3px hsl(var(--primary) / 0.1);
+  transition: all 0.2s ease;
+}
+
+/* Smooth placeholder transition */
+input::placeholder,
+textarea::placeholder {
+  transition: opacity 0.2s ease;
+}
+
+input:focus::placeholder,
+textarea:focus::placeholder {
+  opacity: 0.5;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ============================================ */
+/* NATIVE DATE/TIME PICKER DARK MODE FIX */
+/* ============================================ */
+
+/* Invert calendar and clock icons in dark mode so they're visible */
+.dark input[type="date"]::-webkit-calendar-picker-indicator,
+.dark input[type="time"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.9);
+  opacity: 0.8;
+}
+
+.dark input[type="date"]:hover::-webkit-calendar-picker-indicator,
+.dark input[type="time"]:hover::-webkit-calendar-picker-indicator {
+  opacity: 1;
+}
+
+/* Slight background tint for better visibility */
+.dark input[type="date"],
+.dark input[type="time"] {
+  background-color: rgba(255, 255, 255, 0.05);
+}

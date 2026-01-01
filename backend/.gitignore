@@ -1,0 +1,80 @@
+# ========================
+# Python
+# ========================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ========================
+# Virtual Environments
+# ========================
+venv/
+backend-venv/
+.env/
+.venv/
+backend-venv/
+env/
+ENV/
+
+# ========================
+# Environment variables
+# ========================
+.env
+.env.*
+!.env.example
+
+# ========================
+# Logs
+# ========================
+*.log
+logs/
+
+# ========================
+# OS files
+# ========================
+.DS_Store
+Thumbs.db
+
+# ========================
+# IDEs / Editors
+# ========================
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# ========================
+# Test / Coverage
+# ========================
+.coverage
+htmlcov/
+.pytest_cache/
+
+# ========================
+# Build / Distribution
+# ========================
+build/
+dist/
+*.egg-info/
+
+# ========================
+# Jupyter
+# ========================
+.ipynb_checkpoints/
+
+# ========================
+# Node (if ever used)
+# ========================
+node_modules/
+
+# ========================
+# Secrets / keys
+# ========================
+*.pem
+*.key
+
+# ========================
+# Secrets / keys
+# ========================
+Ignore sqlite db files
+*.db
