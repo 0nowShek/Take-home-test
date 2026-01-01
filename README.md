@@ -4,7 +4,7 @@
 
 **Call Me Reminder** is a professional-grade reminder application that automatically calls users at scheduled times to deliver voice reminders. Built with a modern tech stack (Next.js + FastAPI), it demonstrates production-level UI/UX design, robust backend architecture, and seamless third-party integrations.
 
-**Live Demo:** [https://www.loom.com/share/adeecd397ea043ffab2e12bf96ff67e6]()
+**Live Demo:** https://www.loom.com/share/adeecd397ea043ffab2e12bf96ff67e6
 
 ---
 
